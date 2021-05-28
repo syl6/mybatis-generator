@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liang.generator.mapper.RoutingConfigMapper">
+  <resultMap id="BaseResultMap" type="com.liang.generator.pojo.RoutingConfig">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="routing_name" jdbcType="VARCHAR" property="routingName" />
+    <result column="service_id" jdbcType="VARCHAR" property="serviceId" />
+    <result column="inside_api_url" jdbcType="VARCHAR" property="insideApiUrl" />
+    <result column="insert_by" jdbcType="VARCHAR" property="insertBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, routing_name, service_id, inside_api_url, insert_by, update_time, insert_time, 
+    update_by
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from routing_config
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from routing_config
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.liang.generator.pojo.RoutingConfig">
+    insert into routing_config (id, routing_name, service_id, 
+      inside_api_url, insert_by, update_time, 
+      insert_time, update_by)
+    values (#{id,jdbcType=INTEGER}, #{routingName,jdbcType=VARCHAR}, #{serviceId,jdbcType=VARCHAR}, 
+      #{insideApiUrl,jdbcType=VARCHAR}, #{insertBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{insertTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.liang.generator.pojo.RoutingConfig">
+    insert into routing_config
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="routingName != null">
+        routing_name,
+      </if>
+      <if test="serviceId != null">
+        service_id,
+      </if>
+      <if test="insideApiUrl != null">
+        inside_api_url,
+      </if>
+      <if test="insertBy != null">
+        insert_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="insertTime != null">
+        insert_time,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="routingName != null">
+        #{routingName,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceId != null">
+        #{serviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="insideApiUrl != null">
+        #{insideApiUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="insertBy != null">
+        #{insertBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insertTime != null">
+        #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liang.generator.pojo.RoutingConfig">
+    update routing_config
+    <set>
+      <if test="routingName != null">
+        routing_name = #{routingName,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceId != null">
+        service_id = #{serviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="insideApiUrl != null">
+        inside_api_url = #{insideApiUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="insertBy != null">
+        insert_by = #{insertBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insertTime != null">
+        insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liang.generator.pojo.RoutingConfig">
+    update routing_config
+    set routing_name = #{routingName,jdbcType=VARCHAR},
+      service_id = #{serviceId,jdbcType=VARCHAR},
+      inside_api_url = #{insideApiUrl,jdbcType=VARCHAR},
+      insert_by = #{insertBy,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
