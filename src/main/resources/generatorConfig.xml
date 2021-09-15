@@ -32,7 +32,10 @@
 		<!--配置数据库连接信息-->
 		<jdbcConnection driverClass="${jdbc.driver}"
 						connectionURL="${jdbc.url}" userId="${jdbc.username}" password="${jdbc.password}">
-			<property name="nullCatalogMeansCurrent" value="true"/>
+			<!--针对Oracle数据库-->
+			<property name="remarksReporting" value="true"/>
+			<!--针对mysql数据库-->
+			<!--<property name="nullCatalogMeansCurrent" value="true"/>-->
 		</jdbcConnection>
 		<!-- java模型创建器，是必须要的元素
             负责：1，key类（见context的defaultModelType）；2，java类；3，查询类
